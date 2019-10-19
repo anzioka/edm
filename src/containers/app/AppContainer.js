@@ -20,7 +20,10 @@ import {
   APP_CONTENT_PADDING
 } from '../../core/style/Sizes';
 
+
+
 const APP_CONTENT_BG :string = '#f8f8fb';
+import EdmVisualizationContainer from '../content';
 
 const AppContainerWrapper = styled.div`
   display: flex;
@@ -74,8 +77,7 @@ class AppContainer extends Component<Props> {
     return (
       <Switch>
         <Route exact strict path={Routes.HOME} />
-        <Route path="/tab1" render={() => null} />
-        <Route path="/tab2" render={() => null} />
+        <Route path={Routes.ROOT} component={EdmVisualizationContainer}/>
         <Redirect to={Routes.HOME} />
       </Switch>
     );
@@ -85,6 +87,12 @@ class AppContainer extends Component<Props> {
 
     return (
       <AppContainerWrapper>
+        <link
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"
+        />
         <AppHeaderContainer />
         <AppContentOuterWrapper>
           <AppContentInnerWrapper>

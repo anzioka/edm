@@ -49,7 +49,7 @@ export default class PropertyDataTypes extends Component {
   render() {
     return (
       <div style = {styles.wrapper}>
-        <div className="card">
+        <div className="card" style={{"borderColor": "rgb(197, 213, 229)"}}>
           <div className="card-body" style={styles.card_body}>
               <CardHeader
                 title="PropertyType DataTypes"

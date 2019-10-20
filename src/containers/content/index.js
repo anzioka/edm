@@ -1,5 +1,5 @@
 import CategoriesCount from './CategoriesCount';
-import PropertyTypeDistribution from './PropertyTypeDistribution';
+import EntitySizeDistribution from './EntitySizeDistribution';
 import EntityNumPropertyTypes from './EntityNumPropertyTypes';
 import PropertyDataTypes from './PropertyDataTypes';
 import PropertyTypeProperties from './PropertyTypeProperties';
@@ -10,7 +10,7 @@ import AssociationDirectionality from './AssociationDirectionality';
 export {
   CategoriesCount,
   EntityNumPropertyTypes,
-  PropertyTypeDistribution,
+  EntitySizeDistribution,
   PropertyDataTypes,
   PropertyTypeProperties,
   LargestAssociations,

@@ -56,14 +56,14 @@ const options = {
     maintainAspectRatio: false
   };
 
-class PropertyTypeDistribution extends Component {
+class EntitySizeDistribution extends Component {
     constructor(props) {
       super(props);
     }
     render() {
       return (
         <div style={styles.wrapper}>
-          <div className="card">
+          <div className="card" style={{"borderColor": "rgb(197, 213, 229)"}}>
             <div className="card-body" style={{"height":"400px"}}>
               <Header />
               <Bar
@@ -77,4 +77,4 @@ class PropertyTypeDistribution extends Component {
     }
 }
 
-export default PropertyTypeDistribution;
+export default EntitySizeDistribution;

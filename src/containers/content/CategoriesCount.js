@@ -4,10 +4,6 @@ import { NEUTRALS, WHITE } from '../../core/style/Colors';
 import { PURPLES } from '../../core/style/Colors';
 import DataUtil from '../../utils/DataUtil';
 
-// import { Card } from 'react-bootstrap';
-
-const counts = [{name: 'PropertyType', count: 0}, {name: 'EntityType', count: 0}, {name: 'AssociationType', count: 0}, {name : 'Schema', count: 4}];
-
 const styles = {
   category_label: {
     color: NEUTRALS[1],
@@ -53,7 +49,7 @@ const CategoriesCountItem = ({item}) => (
 )
 
 class CategoriesCount extends Component {
-
+  
   constructor(props) {
     super(props);
     this.state = {

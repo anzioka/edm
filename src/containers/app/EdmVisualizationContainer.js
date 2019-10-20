@@ -3,7 +3,7 @@ import DataUtil from '../../utils/DataUtil';
 import {
   EntityNumPropertyTypes,
   CategoriesCount,
-  PropertyTypeDistribution,
+  EntitySizeDistribution,
   PropertyDataTypes,
   PropertyTypeProperties,
   LargestAssociations,
@@ -16,8 +16,7 @@ const styles = {
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: '40px',
-    width: '100%'
-  }
+    }
 }
 class EdmVisualizationContainer extends Component {
   constructor(props) {
@@ -65,8 +64,8 @@ class EdmVisualizationContainer extends Component {
       <React.Fragment>
         <CategoriesCount {...this.state} />
         <div style = {styles.row}>
-          <PropertyTypeDistribution />
-          <EntityNumPropertyTypes/>
+          <EntitySizeDistribution {...this.state} />
+          <EntityNumPropertyTypes {...this.state}/>
         </div>
 
         <div style = {styles.row}>

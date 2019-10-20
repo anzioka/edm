@@ -40,7 +40,7 @@ export default class AssociationDirectionality extends Component {
   render() {
     return (
       <div style={styles.wrapper}>
-        <div className="card">
+        <div className="card" style={{"borderColor": "rgb(197, 213, 229)"}}>
           <div style={styles.card_body} className="card-body">
               <CardHeader title="Bidirectional AssocationTypes" />
               <Doughnut data={data} />

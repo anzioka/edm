@@ -20,7 +20,7 @@ const styles = {
     fontSize: '15px',
     color: NEUTRALS[0]
   },
-  
+
 };
 
 const ListGroupHeader = () => (
@@ -39,7 +39,7 @@ export default class LargestAssociations extends Component {
   render() {
     return (
       <div style = {styles.wrapper}>
-          <div className="card">
+          <div className="card" style={{"borderColor": "rgb(197, 213, 229)"}}>
             <div style={styles.card_body} className="card-body">
               <CardHeader
                 title="Largest AssocationTypes"

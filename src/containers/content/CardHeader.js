@@ -14,7 +14,7 @@ const styles = {
     fontWeight:300
   },
   header: {
-    borderBottom: '1px solid ' + NEUTRALS[4],
+    borderBottom: '1px solid rgb(197, 213, 229)' ,
     marginBottom: '15px'
   }
 }

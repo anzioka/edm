@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { NEUTRALS, WHITE } from '../../core/style/Colors';
 import { PURPLES } from '../../core/style/Colors';
+import DataUtil from '../../utils/DataUtil';
 
 // import { Card } from 'react-bootstrap';
 
-const counts = [{name: 'PropertyType', count: 200}, {name: 'EntityType', count: 100}, {name: 'AssociationType', count: 821}, {name : 'Schema', count: 150}];
+const counts = [{name: 'PropertyType', count: 0}, {name: 'EntityType', count: 0}, {name: 'AssociationType', count: 0}, {name : 'Schema', count: 4}];
 
 const styles = {
   category_label: {
@@ -52,11 +53,41 @@ const CategoriesCountItem = ({item}) => (
 )
 
 class CategoriesCount extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: []
+    }
+  }
+  getNumberOfSchema(entities) {
+    const result = new Set();
+    entities.forEach((item) => {
+      item['schemas'].forEach((entry) => {
+        result.add(entry['namespace']);
+      });
+    });
+    return result.size;
+  }
+
+  componentDidMount(){
+    //get summaries
+    //how many schemas
+    const {properties, entities, associations} = this.props;
+    var data = []
+    data.push({name: 'PropertyType', count: properties.length});
+    data.push({name: 'EntityType', count: entities.length});
+    data.push({name: 'AssociationType', count: associations.length});
+    data.push({name: 'Schema', count: this.getNumberOfSchema(entities)});
+    this.setState({
+      data: data
+    });
+  }
   //alfonce
   render() {
     return(
       <div style = {styles.container}>
-        {counts.map((item) => (
+        {this.state.data.map((item) => (
           <CategoriesCountItem
             key={item.name}
             item = {item}

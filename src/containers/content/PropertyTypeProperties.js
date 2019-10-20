@@ -36,7 +36,6 @@ const PropertySelector = ({value, onChange}) => (
   <div style={styles.selector_wrap}>
     <h4 style={styles.selector_prompt}> Select criteria </h4>
     <select
-
       value={value}
       onChange = {(event) => onChange(event.target.value)} >
       {
@@ -111,7 +110,6 @@ export default class PropertyTypeProperties extends Component {
   }
 
   render() {
-    // console.log(this.state.data.datasets[0].data);
     return (
       <div style={styles.wrapper}>
         <div className="card">

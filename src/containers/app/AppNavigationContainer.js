@@ -65,12 +65,6 @@ class AppNavigationContainer extends Component<Props> {
         <NavLinkWrapper to={Routes.HOME}>
           Home
         </NavLinkWrapper>
-        <NavLinkWrapper to="/tab1">
-          Tab 1
-        </NavLinkWrapper>
-        <NavLinkWrapper to="/tab2">
-          Tab 2
-        </NavLinkWrapper>
       </NavigationContentWrapper>
     );
   }

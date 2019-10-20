@@ -10,6 +10,7 @@ const styles = {
   card_body: {
     height: '400px',
     maxHeight:' 600px',
+    overflowY: "scroll",
   },
   badge: {
     backgroundColor: GREENS[3],
@@ -18,9 +19,16 @@ const styles = {
   list_item: {
     fontSize: '15px',
     color: NEUTRALS[0]
-  }
+  },
+  
 };
 
+const ListGroupHeader = () => (
+  <div className="d-flex justify-content-between align-items-center">
+    <h6> Title </h6>
+    <h6> Size</h6>
+  </div>
+)
 export default class LargestAssociations extends Component {
   constructor(props) {
     super(props);
@@ -37,6 +45,7 @@ export default class LargestAssociations extends Component {
                 title="Largest AssocationTypes"
                 subtitle="Number of src + dst EntityTypes"
               />
+              <ListGroupHeader/>
               <ul className="list-group">
                 {
                   this.state.data.map((item, index) => (

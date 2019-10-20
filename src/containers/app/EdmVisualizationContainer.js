@@ -4,7 +4,9 @@ import {
   CategoriesCount,
   PropertyTypeDistribution,
   PropertyDataTypes,
-  PropertyTypeProperties
+  PropertyTypeProperties,
+  LargestAssociations,
+  AssociationDirectionality,
 } from '../content';
 
 const styles = {
@@ -29,6 +31,11 @@ class EdmVisualizationContainer extends Component {
         <div style = {styles.row}>
           <PropertyTypeProperties />
           <PropertyDataTypes />
+        </div>
+
+        <div style={styles.row}>
+          <LargestAssociations />
+          <AssociationDirectionality />
         </div>
       </React.Fragment>
     );

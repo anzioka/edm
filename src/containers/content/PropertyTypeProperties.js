@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NEUTRALS, WHITE, PURPLES, GREENS} from '../../core/style/Colors';
+import { NEUTRALS, WHITE, PURPLES, GREENS, REDS} from '../../core/style/Colors';
 import { Pie } from 'react-chartjs-2'
 
 import CardHeader from './CardHeader';
@@ -71,16 +71,8 @@ var initData = {
 	labels: datasets.indexType.labels,
 	datasets: [{
 		data: datasets.indexType.values,
-		backgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
-		],
-		hoverBackgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
-		]
+		backgroundColor: [REDS[2], GREENS[2], PURPLES[2]],
+		hoverBackgroundColor: [REDS[3], GREENS[3], PURPLES[3]]
 	}]
 };
 export default class PropertyTypeProperties extends Component {

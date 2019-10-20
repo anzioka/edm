@@ -24,11 +24,11 @@ const data = {
   datasets: [
     {
       label: "dataset 1",
-      backgroundColor: PURPLES[1],
-      borderColor: PURPLES[3],
+      backgroundColor: GREENS[1],
+      borderColor: GREENS[3],
       borderWidth: 1,
-      hoverBackgroundColor: PURPLES[2],
-      hoverBorderColor: PURPLES[3],
+      hoverBackgroundColor: GREENS[2],
+      hoverBorderColor: GREENS[3],
       data: [89, 49, 1, 40, 984, 10, 6, 51, 24, 229, 48, 1, 4]
     }
   ]

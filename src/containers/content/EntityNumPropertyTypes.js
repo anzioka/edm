@@ -26,7 +26,6 @@ const styles = {
   }
 }
 
-
 class EntityNumPropertyTypes extends Component {
     constructor(props) {
       super(props);

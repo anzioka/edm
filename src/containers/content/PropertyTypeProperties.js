@@ -53,34 +53,72 @@ const PropertySelector = ({value, onChange}) => (
 )
 const datasets = {
   indexType: {
-    values: [1428, 108],
-    labels: ['NONE', 'BTREE']
+    values: [],
+    labels: []
   },
   analyzer: {
-    labels: ['NOT_ANALYZED', 'METAPHONE', 'STANDARD'],
-    values: [1, 270, 1265]
+    labels: [],
+    values: []
   },
   pii: {
-    labels: ["False", "True"],
-    values: [1496, 40]
+    labels: [],
+    values: []
   }
 }
 
-var initData = {
-	labels: datasets.indexType.labels,
-	datasets: [{
-		data: datasets.indexType.values,
-		backgroundColor: [REDS[2], GREENS[2], PURPLES[2]],
-		hoverBackgroundColor: [REDS[3], GREENS[3], PURPLES[3]]
-	}]
-};
+
 export default class PropertyTypeProperties extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
       selector: selectors[0],
-      data: initData
+      data: {}
     }
+  }
+  initializeState() {
+    var initData = {
+    	labels: datasets.indexType.labels,
+    	datasets: [{
+    		data: datasets.indexType.values,
+    		backgroundColor: [REDS[2], GREENS[2], PURPLES[2]],
+    		hoverBackgroundColor: [REDS[3], GREENS[3], PURPLES[3]]
+    	}]
+    };
+    this.setState({
+      data: initData
+    });
+  }
+
+  componentDidMount() {
+    const properties = this.props.properties;
+    selectors.forEach((item) => {
+
+      //get all values
+      const count = []
+      properties.forEach((entry) => {
+        count.push(entry[item]);
+      });
+
+      //get unique values
+      const unique = new Set(count)
+
+      //group values
+      const dict = {}
+      unique.forEach((item) => {
+        dict[item] = 0;
+      })
+      //count each unique value
+      count.forEach((item) => {
+        dict[item]++
+      });
+
+      for (let [key, val] of Object.entries(dict)) {
+          datasets[item].labels.push(key)
+          datasets[item].values.push(val);
+      }
+    });
+    this.initializeState()
   }
 
   handleSelectChange = (value) => {

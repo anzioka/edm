@@ -69,13 +69,13 @@ class EdmVisualizationContainer extends Component {
         </div>
 
         <div style = {styles.row}>
-          <PropertyTypeProperties />
-          <PropertyDataTypes />
+          <PropertyTypeProperties {...this.state} />
+          <PropertyDataTypes {...this.state} />
         </div>
 
         <div style={styles.row}>
-          <LargestAssociations />
-          <AssociationDirectionality />
+          <LargestAssociations {...this.state} />
+          <AssociationDirectionality {...this.state} />
         </div>
       </React.Fragment>
     );

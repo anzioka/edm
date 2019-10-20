@@ -18,7 +18,7 @@ const styles = {
     overflowY: "scroll",
   },
   badge: {
-    backgroundColor: PURPLES[2],
+    backgroundColor: GREENS[3],
     color: 'white'
   },
   list_item: {

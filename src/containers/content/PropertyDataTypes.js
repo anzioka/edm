@@ -6,7 +6,7 @@ import { NEUTRALS, WHITE, PURPLES, GREENS} from '../../core/style/Colors';
 
 const styles = {
   wrapper: {
-    flex: '33.3%',
+    flex: '50%',
     display: 'flex',
     flexDirection: 'column'
   },

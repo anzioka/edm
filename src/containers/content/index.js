@@ -1,7 +1,11 @@
-import EdmVisualizationContainer from './EdmVisualizationContainer';
 import CategoriesCount from './CategoriesCount';
+import PropertyTypeDistribution from './PropertyTypeDistribution';
+import MostFrequentPropertyTypes from './MostFrequentPropertyTypes';
+
 
 //to export other sub components =?
-// export { CategoriesCount };
-
-export default EdmVisualizationContainer;
+export {
+  CategoriesCount,
+  MostFrequentPropertyTypes,
+  PropertyTypeDistribution
+};

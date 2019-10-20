@@ -9,7 +9,7 @@ import { Map } from 'immutable';
 import { connect } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import type { RequestSequence } from 'redux-reqseq';
-
+import EdmVisualizationContainer from './EdmVisualizationContainer';
 import AppHeaderContainer from './AppHeaderContainer';
 import Spinner from '../../components/spinner/Spinner';
 import * as AppActions from './AppActions';
@@ -23,7 +23,6 @@ import {
 
 
 const APP_CONTENT_BG :string = '#f8f8fb';
-import EdmVisualizationContainer from '../content';
 
 const AppContainerWrapper = styled.div`
   display: flex;

@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
-import CategoriesCount from './CategoriesCount';
+import {
+  MostFrequentPropertyTypes,
+  CategoriesCount,
+  PropertyTypeDistribution
+} from '../content';
 
 class EdmVisualizationContainer extends Component {
   render() {
     return (
       <React.Fragment>
         <CategoriesCount />
+        <div className="row mt-5">
+          <PropertyTypeDistribution />
+          <MostFrequentPropertyTypes />
+        </div>
       </React.Fragment>
     );
   }

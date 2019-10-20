@@ -23,6 +23,7 @@ const styles = {
   },
   list_item: {
     fontSize: '15px',
+    color: NEUTRALS[0]
   }
 }
 

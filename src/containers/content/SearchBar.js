@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
           boxShadow: 'none !important',
           border: '1px solid ' + GREENS[1],
     },
-    color: '#135'
+    color: '#135',
+    borderColor: GREENS[1],
   }
 })
 export default class SearchBar extends Component {

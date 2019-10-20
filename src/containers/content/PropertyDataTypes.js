@@ -20,23 +20,22 @@ const styles = {
 //
 // }
 const data = {
-  labels: ['DateTimeOffset', 'Int32', 'GeographyPoint', 'Int16', 'String', 'Binary', 'TimeOfDay', 'Double', 'Date', 'Boolean', 'Int64', 'Duration', 'Guid'],
+  labels: [],
   datasets: [
     {
-      label: "dataset 1",
       backgroundColor: GREENS[1],
       borderColor: GREENS[3],
       borderWidth: 1,
       hoverBackgroundColor: GREENS[2],
       hoverBorderColor: GREENS[3],
-      data: [89, 49, 1, 40, 984, 10, 6, 51, 24, 229, 48, 1, 4]
+      data: []
     }
   ]
 }
 
 const options = {
     legend: {
-      display: true
+      display: false
     },
     maintainAspectRatio: false
 };
@@ -44,7 +43,36 @@ const options = {
 export default class PropertyDataTypes extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      data: {}
+    }
+  }
 
+  componentDidMount() {
+     const properties = this.props.properties;
+     //count how many of each property
+     const types = []
+     properties.forEach((item) => {
+       types.push(item['datatype']);
+     });
+
+     const unique = new Set(types);
+     const dict = {}
+     unique.forEach((item) => {
+       dict[item] = 0;
+     });
+
+     types.forEach((item) => {
+       dict[item]++;
+     });
+
+     for (let [key, val] of Object.entries(dict)) {
+         data['labels'].push(key)
+         data['datasets'][0]['data'].push(val);
+     }
+     this.setState({
+       data: data
+     })
   }
   render() {
     return (
@@ -55,7 +83,7 @@ export default class PropertyDataTypes extends Component {
                 title="PropertyType DataTypes"
               />
               <Bar
-                data = {data}
+                data = {this.state.data}
                 options = {options}
               />
           </div>

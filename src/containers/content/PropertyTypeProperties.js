@@ -81,8 +81,8 @@ export default class PropertyTypeProperties extends Component {
     	labels: datasets.indexType.labels,
     	datasets: [{
     		data: datasets.indexType.values,
-    		backgroundColor: [REDS[2], GREENS[2], PURPLES[2]],
-    		hoverBackgroundColor: [REDS[3], GREENS[3], PURPLES[3]]
+    		backgroundColor: [GREENS[2], PURPLES[3], REDS[2]],
+    		hoverBackgroundColor: [GREENS[3], PURPLES[2], REDS[3]]
     	}]
     };
     this.setState({

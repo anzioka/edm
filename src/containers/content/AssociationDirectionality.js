@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import {Doughnut} from 'react-chartjs-2';
 import CardHeader from './CardHeader';
-import { NEUTRALS, WHITE, PURPLES, GREENS} from '../../core/style/Colors';
+import DataUtil from '../../utils/DataUtil';
+import { NEUTRALS, WHITE, PURPLES, GREENS, REDS} from '../../core/style/Colors';
 
 const styles = {
   wrapper: {
@@ -17,33 +18,40 @@ const styles = {
 }
 
 const data = {
-	labels: [
-		'Red',
-		'Green',
-		'Yellow'
-	],
+	labels: [],
 	datasets: [{
-		data: [300, 50, 100],
-		backgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
-		],
-		hoverBackgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
-		]
+		data: [],
+		backgroundColor: [GREENS[2], PURPLES[3]],
+		hoverBackgroundColor: [GREENS[3], PURPLES[2]]
 	}]
 };
 export default class AssociationDirectionality extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: data
+    }
+  }
+  componentDidMount() {
+    const associations = this.props.associations;
+    const dict = DataUtil.getFrequency(associations, 'bidirectional');
+    for (let [key, val] of Object.entries(dict)) {
+        data['labels'].push(key)
+        data['datasets'][0]['data'].push(val);
+    }
+    this.setState({
+      data: data
+    });
+  }
   render() {
     return (
       <div style={styles.wrapper}>
         <div className="card" style={{"borderColor": "rgb(197, 213, 229)"}}>
           <div style={styles.card_body} className="card-body">
-              <CardHeader title="Bidirectional AssocationTypes" />
-              <Doughnut data={data} />
+              <CardHeader
+                title="Bidirectional AssocationTypes"
+                 />
+              <Doughnut data={this.state.data} />
           </div>
         </div>
       </div>

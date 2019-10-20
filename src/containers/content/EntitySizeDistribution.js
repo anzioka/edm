@@ -35,7 +35,7 @@ const Header = () => (
 
 //data for now: this will change later when I get the real values
 const data = {
-  labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 26, 28, 29, 34, 36, 37, 38, 39, 41, 55, 110],
+  labels: [],
   datasets: [
     {
       label: "dataset 1",
@@ -44,7 +44,7 @@ const data = {
       borderWidth: 1,
       hoverBackgroundColor: GREENS[2],
       hoverBorderColor: GREENS[3],
-      data: [1, 77, 76, 44, 39, 36, 30, 17, 13, 28, 17, 9, 11, 11, 7, 5, 6, 2, 7, 7, 3, 3, 3, 2, 1, 5, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1]
+      data: []
     }
   ]
 }
@@ -57,9 +57,42 @@ const options = {
   };
 
 class EntitySizeDistribution extends Component {
+
     constructor(props) {
       super(props);
+      this.state = {
+        data : []
+      }
     }
+    componentDidMount() {
+      const entities = this.props.entities;
+
+      //get all the sizes
+      const sizes = new Set()
+      entities.forEach((item) => {
+        sizes.add(item['properties'].length);
+      });
+
+      //group items according to sizes
+      const dict = {}
+      sizes.forEach((item) => {
+        dict[item] = 0
+      });
+      entities.forEach((item) => {
+        dict[item['properties'].length]++;
+      });
+
+      //udpate labels/values
+      for (let [key, val] of Object.entries(dict)) {
+          data['labels'].push(key)
+          data['datasets'][0]['data'].push(val);
+      }
+
+      this.setState({
+        data: data
+      })
+    }
+
     render() {
       return (
         <div style={styles.wrapper}>
@@ -67,7 +100,7 @@ class EntitySizeDistribution extends Component {
             <div className="card-body" style={{"height":"400px"}}>
               <Header />
               <Bar
-                data = {data}
+                data = {this.state.data}
                 options={options}
               />
             </div>

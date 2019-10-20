@@ -17,6 +17,12 @@ const styles = {
   header: {
     borderBottom: '1px solid ' + NEUTRALS[4],
     marginBottom: '15px'
+  },
+  wrapper: {
+    flex: '50%',
+    display: 'flex',
+    flexDirection: 'column',
+    marginRight: '20px'
   }
 }
 
@@ -46,7 +52,8 @@ const data = {
 const options = {
     legend: {
       display: false
-    }
+    },
+    maintainAspectRatio: false
   };
 
 class PropertyTypeDistribution extends Component {
@@ -55,15 +62,13 @@ class PropertyTypeDistribution extends Component {
     }
     render() {
       return (
-        <div className="col">
+        <div style={styles.wrapper}>
           <div className="card">
-            <div className="card-body">
+            <div className="card-body" style={{"height":"400px"}}>
               <Header />
               <Bar
                 data = {data}
-                width = {100}
-                height = {50}
-                options = {options}
+                options={options}
               />
             </div>
           </div>

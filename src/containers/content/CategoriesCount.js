@@ -20,18 +20,30 @@ const styles = {
     fontWeight: 'normal'
   },
   card: {
-    height: '100px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '10px',
     cursor: 'default'
+  },
+  container: {
+    display : 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: '100px',
+    flexWrap: 'wrap'
+  },
+  category_item_container: {
+    flex: '0 0 150px',
+    display: 'flex',
+    flexDirection: 'column'
   }
 }
 
 const CategoriesCountItem = ({item}) => (
-  <div className="col justify-content-between">
+  <div style={styles.category_item_container}>
     <div style = {styles.card} className="card text-center">
       <h4 style = {styles.category_count}> {item.count} </h4>
       <h4 style = {styles.category_label}> {item.name}</h4>
@@ -43,7 +55,7 @@ class CategoriesCount extends Component {
   //alfonce
   render() {
     return(
-      <div className="row">
+      <div style = {styles.container}>
         {counts.map((item) => (
           <CategoriesCountItem
             key={item.name}

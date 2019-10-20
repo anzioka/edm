@@ -1,11 +1,11 @@
 import CategoriesCount from './CategoriesCount';
 import PropertyTypeDistribution from './PropertyTypeDistribution';
-import MostFrequentPropertyTypes from './MostFrequentPropertyTypes';
+import EntityNumPropertyTypes from './EntityNumPropertyTypes';
 
 
 //to export other sub components =?
 export {
   CategoriesCount,
-  MostFrequentPropertyTypes,
+  EntityNumPropertyTypes,
   PropertyTypeDistribution
 };

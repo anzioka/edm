@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
 import {
-  MostFrequentPropertyTypes,
+  EntityNumPropertyTypes,
   CategoriesCount,
   PropertyTypeDistribution
 } from '../content';
 
+const styles = {
+  row : {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: '40px',
+    width: '100%'
+  }
+}
 class EdmVisualizationContainer extends Component {
   render() {
     return (
       <React.Fragment>
         <CategoriesCount />
-        <div className="row mt-5">
+        <div style = {styles.row}>
           <PropertyTypeDistribution />
-          <MostFrequentPropertyTypes />
+          <EntityNumPropertyTypes/>
         </div>
       </React.Fragment>
     );

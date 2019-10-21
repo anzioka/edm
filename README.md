@@ -1,3 +1,12 @@
 # lets-react
+Visualization of structure/properties of openlattice edm
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/openlattice/lets-react.svg)](https://greenkeeper.io/)
+## Get started
+git clone https://github.com/anzioka/edm.git
+
+cd lets-react
+
+npm install
+
+npm run app
+

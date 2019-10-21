@@ -24,12 +24,24 @@ const styles = {
 };
 
 const ListGroupHeader = () => (
-  <div className="d-flex justify-content-between align-items-center">
+  <div className="d-flex justify-content-between align-items-center pr-4 pl-4">
     <h6> Title </h6>
     <h6> Size</h6>
   </div>
 )
 export default class LargestAssociations extends Component {
+  componentDidMount() {
+    const associations = this.props.associations;
+    const sizes = []
+    associations.forEach((item) => {
+      sizes.push({name: item.entityType.title, value: Number(item.src.length) + Number(item.dst.length)})
+    });
+
+    sizes.sort((a, b) =>(a.value < b.value) ? 1 : -1);
+    this.setState({
+      data: sizes.slice(0, 10)
+    })
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -43,7 +55,7 @@ export default class LargestAssociations extends Component {
             <div style={styles.card_body} className="card-body">
               <CardHeader
                 title="Largest AssocationTypes"
-                subtitle="Number of src + dst EntityTypes"
+                subtitle="Number of connectd EntityTypes"
               />
               <ListGroupHeader/>
               <ul className="list-group">

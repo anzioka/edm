@@ -3,6 +3,7 @@ import { NEUTRALS, WHITE, PURPLES, GREENS, REDS} from '../../core/style/Colors';
 import { Pie } from 'react-chartjs-2'
 
 import CardHeader from './CardHeader';
+import Select from './Select'
 
 const styles = {
   wrapper: {
@@ -24,7 +25,7 @@ const styles = {
   selector_prompt: {
     color: NEUTRALS[1],
     fontSize: '15px',
-    fontWeight:300,
+    fontWeight:400,
     padding: 0,
     margin: 0,
     marginRight: '20px'
@@ -35,20 +36,12 @@ const selectors = ["indexType", "analyzer", "pii"];
 const PropertySelector = ({value, onChange}) => (
   <div style={styles.selector_wrap}>
     <h4 style={styles.selector_prompt}> Select criteria </h4>
-    <select
-      value={value}
-      onChange = {(event) => onChange(event.target.value)} >
-      {
-        selectors.map((item, index) => (
-          <option
-            key={index}
-            value={item}
-            >
-            {item}
-          </option>
-        ))
-      }
-    </select>
+    <Select
+      onChange = {onChange}
+      value = {value}
+      options = {selectors}
+    />
+
   </div>
 )
 const datasets = {

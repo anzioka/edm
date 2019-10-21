@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     color: '#135',
     borderColor: GREENS[1],
   }
-})
+});
 export default class SearchBar extends Component {
   render() {
     const {
